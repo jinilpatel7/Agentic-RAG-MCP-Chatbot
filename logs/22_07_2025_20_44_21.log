@@ -1,0 +1,24 @@
+[ 2025-07-22 20:44:24,729 ] 14 root - INFO - Initializing IngestionAgent...
+[ 2025-07-22 20:44:24,729 ] 21 root - INFO - Initializing TextExtractor with supported file types...
+[ 2025-07-22 20:44:24,730 ] 21 root - INFO - Starting ingestion for 2 file(s).
+[ 2025-07-22 20:44:24,730 ] 24 root - INFO - Processing file: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 20:44:25,857 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 20:44:25,858 ] 24 root - INFO - Processing file: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 20:44:40,760 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 20:44:40,761 ] 34 root - INFO - Completed ingestion of all files.
+[ 2025-07-22 20:44:40,761 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 20:44:40,763 ] 36 root - INFO - Text split into 9 chunks.
+[ 2025-07-22 20:44:40,763 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 20:44:40,766 ] 36 root - INFO - Text split into 49 chunks.
+[ 2025-07-22 20:44:40,767 ] 11 root - INFO - Loading HuggingFace embedding model: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 20:45:01,904 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-22 20:45:01,905 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 20:45:13,680 ] 18 root - INFO - Embedding documents and storing to Chroma DB...
+[ 2025-07-22 20:45:13,681 ] 13 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-22 20:45:13,770 ] 22 chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[ 2025-07-22 20:45:14,363 ] 23 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-22 20:45:14,364 ] 31 root - INFO - Adding 58 document chunks to Chroma...
+[ 2025-07-22 20:45:19,040 ] 33 root - INFO - Documents added to Chroma DB successfully.
+[ 2025-07-22 20:45:19,041 ] 13 root - INFO - Initializing Chroma vectorstore at: vectorstore
+[ 2025-07-22 20:45:23,720 ] 26 root - INFO - LLMResponseAgent initialized with model: mistralai/mistral-7b-instruct:free
+[ 2025-07-22 20:45:23,721 ] 20 root - INFO - Coordinator started processing query with trace_id: 3a688cb6-d13f-4377-ba3d-62c96f536ee4

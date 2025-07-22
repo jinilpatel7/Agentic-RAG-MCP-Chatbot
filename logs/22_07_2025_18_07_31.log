@@ -1,0 +1,21 @@
+[ 2025-07-22 18:07:34,516 ] 14 root - INFO - Initializing IngestionAgent...
+[ 2025-07-22 18:07:34,517 ] 21 root - INFO - Initializing TextExtractor with supported file types...
+[ 2025-07-22 18:07:34,517 ] 21 root - INFO - Starting ingestion for 2 file(s).
+[ 2025-07-22 18:07:34,517 ] 24 root - INFO - Processing file: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 18:07:35,642 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 18:07:35,643 ] 24 root - INFO - Processing file: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 18:07:54,018 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 18:07:54,019 ] 34 root - INFO - Completed ingestion of all files.
+[ 2025-07-22 18:07:54,020 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 18:07:54,021 ] 36 root - INFO - Text split into 9 chunks.
+[ 2025-07-22 18:07:54,022 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 18:07:54,025 ] 36 root - INFO - Text split into 49 chunks.
+[ 2025-07-22 18:07:54,026 ] 11 root - INFO - Loading HuggingFace embedding model: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 18:08:16,403 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-22 18:08:16,404 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 18:08:27,734 ] 18 root - INFO - Embedding documents and storing to Chroma DB...
+[ 2025-07-22 18:08:27,735 ] 13 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-22 18:08:27,815 ] 22 chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[ 2025-07-22 18:08:28,302 ] 23 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-22 18:08:28,302 ] 31 root - INFO - Adding 58 document chunks to Chroma...
+[ 2025-07-22 18:08:32,589 ] 34 root - INFO - Documents added to Chroma DB successfully.

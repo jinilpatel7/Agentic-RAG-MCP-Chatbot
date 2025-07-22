@@ -1,0 +1,52 @@
+[ 2025-07-22 21:25:47,145 ] 26 root - INFO - Cleared existing vector store at ./vectorstore/chroma_db
+[ 2025-07-22 21:25:47,147 ] 41 root - INFO - Starting full agentic pipeline test...
+[ 2025-07-22 21:25:47,147 ] 14 root - INFO - Initializing IngestionAgent...
+[ 2025-07-22 21:25:47,148 ] 21 root - INFO - Initializing TextExtractor with supported file types...
+[ 2025-07-22 21:25:47,149 ] 21 root - INFO - Starting ingestion for 2 file(s).
+[ 2025-07-22 21:25:47,149 ] 24 root - INFO - Processing file: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 21:25:48,189 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 21:25:48,190 ] 24 root - INFO - Processing file: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 21:26:04,566 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 21:26:04,567 ] 34 root - INFO - Completed ingestion of all files.
+[ 2025-07-22 21:26:04,567 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 21:26:04,568 ] 36 root - INFO - Text split into 9 chunks.
+[ 2025-07-22 21:26:04,569 ] 59 root - INFO - Processed 9 chunks from Jinil_Patel_Resume.pdf
+[ 2025-07-22 21:26:04,569 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 21:26:04,572 ] 36 root - INFO - Text split into 49 chunks.
+[ 2025-07-22 21:26:04,573 ] 59 root - INFO - Processed 49 chunks from Docker Notes.docx
+[ 2025-07-22 21:26:04,573 ] 61 root - INFO - Total documents to embed: 58
+[ 2025-07-22 21:26:04,574 ] 11 root - INFO - Loading HuggingFace embedding model: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 21:26:25,747 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-22 21:26:25,748 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 21:26:36,139 ] 18 root - INFO - Embedding documents and storing to Chroma DB...
+[ 2025-07-22 21:26:36,141 ] 17 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-22 21:26:36,174 ] 22 chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[ 2025-07-22 21:26:36,745 ] 28 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-22 21:26:36,747 ] 41 root - INFO - Adding 58 document chunks to Chroma...
+[ 2025-07-22 21:26:41,573 ] 43 root - INFO - Documents added to Chroma DB successfully.
+[ 2025-07-22 21:26:41,579 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-22 21:26:41,579 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 21:26:48,106 ] 17 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-22 21:26:48,240 ] 28 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-22 21:26:48,241 ] 17 root - INFO - RetrievalAgent initialized successfully
+[ 2025-07-22 21:26:51,681 ] 26 root - INFO - LLMResponseAgent initialized with model: mistralai/mistral-7b-instruct:free
+[ 2025-07-22 21:26:51,682 ] 31 root - INFO - CoordinatorAgent initialized successfully
+[ 2025-07-22 21:26:51,683 ] 38 root - INFO - Coordinator started processing query with trace_id: 067c13e1-b2af-423f-b03a-aa1b95baf338
+[ 2025-07-22 21:26:51,683 ] 24 root - INFO - Starting document retrieval for query: What are the skills mentioned in the resume?
+[ 2025-07-22 21:26:51,684 ] 52 root - INFO - Searching for: What are the skills mentioned in the resume?
+[ 2025-07-22 21:26:51,855 ] 57 root - INFO - Found results from sources: {'Jinil_Patel_Resume.pdf', 'Docker Notes.docx'}
+[ 2025-07-22 21:26:51,855 ] 58 root - INFO - Retrieved 4 chunks from sources: {'Jinil_Patel_Resume.pdf', 'Docker Notes.docx'}
+[ 2025-07-22 21:26:55,185 ] 1025 httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-07-22 21:27:00,475 ] 38 root - INFO - Coordinator started processing query with trace_id: ab0eb6d6-fd65-49e2-9bf2-d614ec880b6c
+[ 2025-07-22 21:27:00,475 ] 24 root - INFO - Starting document retrieval for query: What is Docker and how does it work?
+[ 2025-07-22 21:27:00,476 ] 52 root - INFO - Searching for: What is Docker and how does it work?
+[ 2025-07-22 21:27:00,516 ] 57 root - INFO - Found results from sources: {'Docker Notes.docx'}
+[ 2025-07-22 21:27:00,517 ] 58 root - INFO - Retrieved 4 chunks from sources: {'Docker Notes.docx'}
+[ 2025-07-22 21:27:03,075 ] 1025 httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-07-22 21:27:05,647 ] 38 root - INFO - Coordinator started processing query with trace_id: ed0d3889-4cd4-400c-9de5-e8e99164f7f2
+[ 2025-07-22 21:27:05,647 ] 24 root - INFO - Starting document retrieval for query: Who's resume is it and what are their qualifications?
+[ 2025-07-22 21:27:05,648 ] 52 root - INFO - Searching for: Who's resume is it and what are their qualifications?
+[ 2025-07-22 21:27:05,698 ] 57 root - INFO - Found results from sources: {'Jinil_Patel_Resume.pdf', 'Docker Notes.docx'}
+[ 2025-07-22 21:27:05,698 ] 58 root - INFO - Retrieved 4 chunks from sources: {'Jinil_Patel_Resume.pdf', 'Docker Notes.docx'}
+[ 2025-07-22 21:27:08,402 ] 1025 httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-07-22 21:27:11,570 ] 112 root - INFO - Pipeline test completed successfully.

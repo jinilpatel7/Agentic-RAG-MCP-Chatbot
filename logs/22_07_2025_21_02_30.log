@@ -1,0 +1,34 @@
+[ 2025-07-22 21:02:35,078 ] 25 root - INFO - Starting full agentic pipeline test...
+[ 2025-07-22 21:02:35,079 ] 14 root - INFO - Initializing IngestionAgent...
+[ 2025-07-22 21:02:35,080 ] 21 root - INFO - Initializing TextExtractor with supported file types...
+[ 2025-07-22 21:02:35,080 ] 21 root - INFO - Starting ingestion for 2 file(s).
+[ 2025-07-22 21:02:35,081 ] 24 root - INFO - Processing file: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 21:02:36,356 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 21:02:36,357 ] 24 root - INFO - Processing file: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 21:02:54,370 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 21:02:54,371 ] 34 root - INFO - Completed ingestion of all files.
+[ 2025-07-22 21:02:54,371 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 21:02:54,372 ] 36 root - INFO - Text split into 9 chunks.
+[ 2025-07-22 21:02:54,373 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 21:02:54,376 ] 36 root - INFO - Text split into 49 chunks.
+[ 2025-07-22 21:02:54,376 ] 11 root - INFO - Loading HuggingFace embedding model: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 21:03:18,410 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-22 21:03:18,411 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 21:03:29,403 ] 18 root - INFO - Embedding documents and storing to Chroma DB...
+[ 2025-07-22 21:03:29,404 ] 13 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-22 21:03:29,477 ] 22 chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[ 2025-07-22 21:03:30,060 ] 23 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-22 21:03:30,060 ] 31 root - INFO - Adding 58 document chunks to Chroma...
+[ 2025-07-22 21:03:35,119 ] 33 root - INFO - Documents added to Chroma DB successfully.
+[ 2025-07-22 21:03:35,126 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-22 21:03:35,127 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 21:03:41,698 ] 13 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-22 21:03:41,841 ] 23 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-22 21:03:41,842 ] 16 root - INFO - RetrievalAgent initialized successfully
+[ 2025-07-22 21:03:45,328 ] 26 root - INFO - LLMResponseAgent initialized with model: mistralai/mistral-7b-instruct:free
+[ 2025-07-22 21:03:45,329 ] 31 root - INFO - CoordinatorAgent initialized successfully
+[ 2025-07-22 21:03:45,329 ] 38 root - INFO - Coordinator started processing query with trace_id: 321b06dc-1deb-4e29-9c5f-044f946f6dcc
+[ 2025-07-22 21:03:45,330 ] 23 root - INFO - Starting document retrieval for query: What are the projects done by jinil
+[ 2025-07-22 21:03:45,545 ] 25 root - INFO - Retrieved 5 documents.
+[ 2025-07-22 21:03:48,667 ] 1025 httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-07-22 21:03:50,017 ] 59 root - INFO - Pipeline test completed successfully.
