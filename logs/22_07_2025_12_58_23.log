@@ -1,0 +1,20 @@
+[ 2025-07-22 12:58:25,951 ] 19 root - INFO - Starting end-to-end pipeline test...
+[ 2025-07-22 12:58:25,952 ] 14 root - INFO - Initializing IngestionAgent...
+[ 2025-07-22 12:58:25,953 ] 21 root - INFO - Initializing TextExtractor with supported file types...
+[ 2025-07-22 12:58:25,954 ] 21 root - INFO - Starting ingestion for 2 file(s).
+[ 2025-07-22 12:58:25,954 ] 24 root - INFO - Processing file: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 12:58:26,438 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 12:58:26,438 ] 24 root - INFO - Processing file: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 12:58:37,159 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 12:58:37,159 ] 34 root - INFO - Completed ingestion of all files.
+[ 2025-07-22 12:58:37,160 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 12:58:37,161 ] 36 root - INFO - Text split into 9 chunks.
+[ 2025-07-22 12:58:37,161 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 12:58:37,164 ] 36 root - INFO - Text split into 49 chunks.
+[ 2025-07-22 12:58:37,164 ] 33 root - INFO - Total 58 document chunks ready for embedding.
+[ 2025-07-22 12:58:37,167 ] 16 root - INFO - Using embedding model: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 12:58:50,812 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-22 12:58:50,813 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 12:59:01,356 ] 23 root - INFO - Embedding documents and storing to Chroma DB...
+[ 2025-07-22 12:59:01,423 ] 22 chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[ 2025-07-22 12:59:04,951 ] 42 root - ERROR - Pipeline failed: Error occurred in script: [C:\Users\jinil\Desktop\Agentic-RAG-MCP-Chatbot\src\agents\embedding_agent.py] at line [25] with message: [Error occurred in script: [C:\Users\jinil\Desktop\Agentic-RAG-MCP-Chatbot\src\vectorstore\chroma_db.py] at line [35] with message: ['Chroma' object has no attribute 'persist']]

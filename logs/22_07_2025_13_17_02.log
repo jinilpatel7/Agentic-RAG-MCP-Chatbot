@@ -1,0 +1,46 @@
+[ 2025-07-22 13:17:12,172 ] 24 root - INFO - Starting full pipeline test...
+[ 2025-07-22 13:17:12,172 ] 14 root - INFO - Initializing IngestionAgent...
+[ 2025-07-22 13:17:12,173 ] 21 root - INFO - Initializing TextExtractor with supported file types...
+[ 2025-07-22 13:17:12,173 ] 21 root - INFO - Starting ingestion for 2 file(s).
+[ 2025-07-22 13:17:12,173 ] 24 root - INFO - Processing file: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 13:17:12,513 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 13:17:12,514 ] 24 root - INFO - Processing file: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 13:17:18,185 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 13:17:18,186 ] 34 root - INFO - Completed ingestion of all files.
+[ 2025-07-22 13:17:18,186 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 13:17:18,187 ] 36 root - INFO - Text split into 9 chunks.
+[ 2025-07-22 13:17:18,187 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 13:17:18,190 ] 36 root - INFO - Text split into 49 chunks.
+[ 2025-07-22 13:17:18,190 ] 42 root - INFO - Total 58 chunks ready for embedding.
+[ 2025-07-22 13:17:18,191 ] 14 root - INFO - Using embedding model: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 13:17:18,193 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-22 13:17:18,193 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 13:17:25,097 ] 53 root - ERROR - Pipeline failed with unexpected error: CustomException.__init__() takes 3 positional arguments but 4 were given
+Traceback (most recent call last):
+  File "C:\Users\jinil\Desktop\Agentic-RAG-MCP-Chatbot\src\agents\embedding_agent.py", line 16, in __init__
+    self.embedding_model = HuggingFaceEmbeddings(model_name=model_name, model=model)
+                           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jinil\Desktop\Agentic-RAG-MCP-Chatbot\myenv\Lib\site-packages\langchain_core\_api\deprecation.py", line 222, in warn_if_direct_instance
+    return wrapped(self, *args, **kwargs)
+  File "C:\Users\jinil\Desktop\Agentic-RAG-MCP-Chatbot\myenv\Lib\site-packages\langchain_community\embeddings\huggingface.py", line 69, in __init__
+    super().__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\jinil\Desktop\Agentic-RAG-MCP-Chatbot\myenv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HuggingFaceEmbeddings
+model
+  Extra inputs are not permitted [type=extra_forbidden, input_value=SentenceTransformer(
+  (0...e})
+  (2): Normalize()
+), input_type=SentenceTransformer]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jinil\Desktop\Agentic-RAG-MCP-Chatbot\main.py", line 45, in run_end_to_end_test
+    embedder = EmbeddingAgent(model_name=MODEL_NAME)
+  File "C:\Users\jinil\Desktop\Agentic-RAG-MCP-Chatbot\src\agents\embedding_agent.py", line 18, in __init__
+    raise CustomException("embedding_agent.py", 13, str(e))
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: CustomException.__init__() takes 3 positional arguments but 4 were given

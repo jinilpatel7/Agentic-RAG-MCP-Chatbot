@@ -1,0 +1,23 @@
+[ 2025-07-22 16:34:09,793 ] 16 root - INFO - Starting full pipeline test...
+[ 2025-07-22 16:34:09,794 ] 14 root - INFO - Initializing IngestionAgent...
+[ 2025-07-22 16:34:09,794 ] 21 root - INFO - Initializing TextExtractor with supported file types...
+[ 2025-07-22 16:34:09,794 ] 21 root - INFO - Starting ingestion for 2 file(s).
+[ 2025-07-22 16:34:09,794 ] 24 root - INFO - Processing file: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 16:34:10,868 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 16:34:10,869 ] 24 root - INFO - Processing file: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 16:34:27,419 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 16:34:27,420 ] 34 root - INFO - Completed ingestion of all files.
+[ 2025-07-22 16:34:27,420 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 16:34:27,421 ] 36 root - INFO - Text split into 9 chunks.
+[ 2025-07-22 16:34:27,421 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 16:34:27,425 ] 36 root - INFO - Text split into 49 chunks.
+[ 2025-07-22 16:34:27,425 ] 11 root - INFO - Loading HuggingFace embedding model: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 16:34:48,100 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-22 16:34:48,101 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-22 16:34:57,978 ] 18 root - INFO - Embedding documents and storing to Chroma DB...
+[ 2025-07-22 16:34:57,978 ] 13 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-22 16:34:58,075 ] 22 chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[ 2025-07-22 16:34:58,646 ] 23 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-22 16:34:58,646 ] 31 root - INFO - Adding 58 document chunks to Chroma...
+[ 2025-07-22 16:35:04,123 ] 34 root - INFO - Documents added to Chroma DB successfully.
+[ 2025-07-22 16:35:04,124 ] 37 root - INFO - Pipeline test completed successfully.

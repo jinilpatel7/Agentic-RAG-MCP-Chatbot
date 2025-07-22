@@ -1,0 +1,19 @@
+[ 2025-07-22 13:10:24,121 ] 24 root - INFO - Starting full pipeline test...
+[ 2025-07-22 13:10:24,122 ] 14 root - INFO - Initializing IngestionAgent...
+[ 2025-07-22 13:10:24,122 ] 21 root - INFO - Initializing TextExtractor with supported file types...
+[ 2025-07-22 13:10:24,122 ] 21 root - INFO - Starting ingestion for 2 file(s).
+[ 2025-07-22 13:10:24,122 ] 24 root - INFO - Processing file: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 13:10:24,322 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 13:10:24,323 ] 24 root - INFO - Processing file: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 13:10:32,364 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 13:10:32,364 ] 34 root - INFO - Completed ingestion of all files.
+[ 2025-07-22 13:10:32,365 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 13:10:32,366 ] 36 root - INFO - Text split into 9 chunks.
+[ 2025-07-22 13:10:32,366 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-22 13:10:32,369 ] 36 root - INFO - Text split into 49 chunks.
+[ 2025-07-22 13:10:32,369 ] 42 root - INFO - Total 58 chunks ready for embedding.
+[ 2025-07-22 13:10:32,370 ] 53 root - ERROR - Pipeline failed with unexpected error: EmbeddingAgent.__init__() got an unexpected keyword argument 'model_name'
+Traceback (most recent call last):
+  File "C:\Users\jinil\Desktop\Agentic-RAG-MCP-Chatbot\main.py", line 45, in run_end_to_end_test
+    embedder = EmbeddingAgent(model_name=MODEL_NAME)
+TypeError: EmbeddingAgent.__init__() got an unexpected keyword argument 'model_name'

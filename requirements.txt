@@ -5,6 +5,8 @@ fastapi
 uvicorn
 langchain>=0.3.0
 langchain-community
+langchain-chroma
+langchain-huggingface
 pypdf
 python-docx
 python-pptx
@@ -12,4 +14,8 @@ pandas
 markdown
 unstructured
 setuptools
+
+sentence-transformers
+python-dotenv
+chromadb
 -e .
