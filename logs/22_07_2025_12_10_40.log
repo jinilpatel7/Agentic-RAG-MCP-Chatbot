@@ -1,0 +1,11 @@
+[ 2025-07-22 12:10:40,461 ] 45 root - INFO - Running IngestionAgent from main block.
+[ 2025-07-22 12:10:40,462 ] 14 root - INFO - Initializing IngestionAgent...
+[ 2025-07-22 12:10:40,462 ] 21 root - INFO - Initializing TextExtractor with supported file types...
+[ 2025-07-22 12:10:40,462 ] 21 root - INFO - Starting ingestion for 3 file(s).
+[ 2025-07-22 12:10:40,462 ] 24 root - INFO - Processing file: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 12:10:40,722 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Downloads\Jinil_Patel_Resume.pdf
+[ 2025-07-22 12:10:40,722 ] 24 root - INFO - Processing file: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 12:10:46,200 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Desktop\Docker Notes.docx
+[ 2025-07-22 12:10:46,201 ] 24 root - INFO - Processing file: C:\Users\jinil\Downloads\Final_leads_comb.csv
+[ 2025-07-22 12:10:46,242 ] 28 root - INFO - Successfully extracted text from: C:\Users\jinil\Downloads\Final_leads_comb.csv
+[ 2025-07-22 12:10:46,242 ] 34 root - INFO - Completed ingestion of all files.

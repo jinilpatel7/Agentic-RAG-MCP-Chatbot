@@ -3,4 +3,13 @@ numpy
 streamlit
 fastapi
 uvicorn
+langchain>=0.3.0
+langchain-community
+pypdf
+python-docx
+python-pptx
+pandas
+markdown
+unstructured
+setuptools
 -e .

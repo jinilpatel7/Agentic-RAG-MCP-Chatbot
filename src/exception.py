@@ -1,5 +1,5 @@
 import sys
-from logger import logging
+from src.logger import logging
 
 # This function builds a detailed error message using exception info
 def error_message_detailed(error, error_detail: sys):
