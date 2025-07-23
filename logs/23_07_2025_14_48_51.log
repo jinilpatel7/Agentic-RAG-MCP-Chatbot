@@ -1,0 +1,29 @@
+[ 2025-07-23 14:48:56,097 ] 11 root - INFO - Loading HuggingFace embedding model: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 14:49:17,031 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-23 14:49:17,032 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 14:49:26,100 ] 17 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-23 14:49:26,158 ] 22 chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[ 2025-07-23 14:49:26,500 ] 28 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-23 14:49:26,503 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-23 14:49:26,503 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 14:49:33,055 ] 17 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-23 14:49:33,176 ] 28 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-23 14:49:33,177 ] 18 root - INFO - RetrievalAgent initialized successfully
+[ 2025-07-23 14:49:35,985 ] 34 root - INFO - LLMResponseAgent initialized with model: mistralai/mistral-7b-instruct:free
+[ 2025-07-23 14:49:35,986 ] 29 root - INFO - CoordinatorAgent initialized successfully
+[ 2025-07-23 14:50:58,548 ] 14 root - INFO - Initializing IngestionAgent...
+[ 2025-07-23 14:50:58,548 ] 21 root - INFO - Initializing TextExtractor with supported file types...
+[ 2025-07-23 14:50:58,549 ] 21 root - INFO - Starting ingestion for 1 file(s).
+[ 2025-07-23 14:50:58,549 ] 24 root - INFO - Processing file: ./data\Coding Round Task.pdf
+[ 2025-07-23 14:50:59,549 ] 28 root - INFO - Successfully extracted text from: ./data\Coding Round Task.pdf
+[ 2025-07-23 14:50:59,550 ] 34 root - INFO - Completed ingestion of all files.
+[ 2025-07-23 14:50:59,551 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-23 14:50:59,556 ] 36 root - INFO - Text split into 10 chunks.
+[ 2025-07-23 14:50:59,557 ] 41 root - INFO - Adding 10 document chunks to Chroma...
+[ 2025-07-23 14:51:01,287 ] 43 root - INFO - Documents added to Chroma DB successfully.
+[ 2025-07-23 14:51:19,410 ] 36 root - INFO - Coordinator started processing query with trace_id: c33673d1-5fc6-424b-860f-ef6f8f44c968
+[ 2025-07-23 14:51:19,411 ] 28 root - INFO - Starting document retrieval for query: what is the expected output of this coding round task
+[ 2025-07-23 14:51:19,413 ] 52 root - INFO - Searching for: what is the expected output of this coding round task
+[ 2025-07-23 14:51:19,580 ] 57 root - INFO - Found results from sources: {'Coding Round Task.pdf'}
+[ 2025-07-23 14:51:19,581 ] 52 root - INFO - Retrieved 7 chunks from sources: ['Coding Round Task.pdf']
+[ 2025-07-23 14:51:22,887 ] 1025 httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"

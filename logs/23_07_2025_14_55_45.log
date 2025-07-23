@@ -1,0 +1,13 @@
+[ 2025-07-23 14:55:50,126 ] 11 root - INFO - Loading HuggingFace embedding model: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 14:56:17,143 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-23 14:56:17,144 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 14:56:27,770 ] 17 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-23 14:56:27,912 ] 22 chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[ 2025-07-23 14:56:28,504 ] 28 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-23 14:56:28,509 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-23 14:56:28,510 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 14:56:35,208 ] 17 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-23 14:56:35,327 ] 28 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-23 14:56:35,328 ] 18 root - INFO - RetrievalAgent initialized successfully
+[ 2025-07-23 14:56:38,903 ] 34 root - INFO - LLMResponseAgent initialized with model: mistralai/mistral-7b-instruct:free
+[ 2025-07-23 14:56:38,903 ] 29 root - INFO - CoordinatorAgent initialized successfully

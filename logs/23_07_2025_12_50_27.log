@@ -1,0 +1,56 @@
+[ 2025-07-23 12:50:33,402 ] 11 root - INFO - Loading HuggingFace embedding model: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 12:51:04,550 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-23 12:51:04,551 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 12:51:14,107 ] 17 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-23 12:51:14,211 ] 22 chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[ 2025-07-23 12:51:14,804 ] 28 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-23 12:51:14,809 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-23 12:51:14,809 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 12:51:19,744 ] 17 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-23 12:51:19,876 ] 28 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-23 12:51:19,877 ] 18 root - INFO - RetrievalAgent initialized successfully
+[ 2025-07-23 12:51:23,839 ] 34 root - INFO - LLMResponseAgent initialized with model: mistralai/mistral-7b-instruct:free
+[ 2025-07-23 12:51:23,840 ] 29 root - INFO - CoordinatorAgent initialized successfully
+[ 2025-07-23 12:52:25,601 ] 14 root - INFO - Initializing IngestionAgent...
+[ 2025-07-23 12:52:25,602 ] 21 root - INFO - Initializing TextExtractor with supported file types...
+[ 2025-07-23 12:52:25,602 ] 21 root - INFO - Starting ingestion for 3 file(s).
+[ 2025-07-23 12:52:25,603 ] 24 root - INFO - Processing file: ./data\Jinil_Patel_Resume.pdf
+[ 2025-07-23 12:52:26,572 ] 28 root - INFO - Successfully extracted text from: ./data\Jinil_Patel_Resume.pdf
+[ 2025-07-23 12:52:26,573 ] 24 root - INFO - Processing file: ./data\VedicReport6-25-20259-49-16AM.pdf
+[ 2025-07-23 12:52:28,163 ] 28 root - INFO - Successfully extracted text from: ./data\VedicReport6-25-20259-49-16AM.pdf
+[ 2025-07-23 12:52:28,164 ] 24 root - INFO - Processing file: ./data\LLM Interview Questions.pdf
+[ 2025-07-23 12:52:28,825 ] 28 root - INFO - Successfully extracted text from: ./data\LLM Interview Questions.pdf
+[ 2025-07-23 12:52:28,826 ] 34 root - INFO - Completed ingestion of all files.
+[ 2025-07-23 12:52:28,827 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-23 12:52:28,829 ] 36 root - INFO - Text split into 9 chunks.
+[ 2025-07-23 12:52:28,830 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-23 12:52:28,839 ] 36 root - INFO - Text split into 97 chunks.
+[ 2025-07-23 12:52:28,845 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-23 12:52:28,849 ] 36 root - INFO - Text split into 45 chunks.
+[ 2025-07-23 12:52:28,850 ] 41 root - INFO - Adding 151 document chunks to Chroma...
+[ 2025-07-23 12:52:44,726 ] 43 root - INFO - Documents added to Chroma DB successfully.
+[ 2025-07-23 12:53:03,366 ] 36 root - INFO - Coordinator started processing query with trace_id: 3989dc89-3893-4988-b698-955a81f00823
+[ 2025-07-23 12:53:03,368 ] 28 root - INFO - Starting document retrieval for query: Whose resume is uploaded and what are his qualifications
+[ 2025-07-23 12:53:03,368 ] 52 root - INFO - Searching for: Whose resume is uploaded and what are his qualifications
+[ 2025-07-23 12:53:03,555 ] 57 root - INFO - Found results from sources: {'VedicReport6-25-20259-49-16AM.pdf', 'Jinil_Patel_Resume.pdf', 'LLM Interview Questions.pdf'}
+[ 2025-07-23 12:53:03,555 ] 52 root - INFO - Retrieved 7 chunks from sources: ['VedicReport6-25-20259-49-16AM.pdf', 'Jinil_Patel_Resume.pdf', 'LLM Interview Questions.pdf']
+[ 2025-07-23 12:53:06,962 ] 1025 httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-07-23 12:53:39,744 ] 36 root - INFO - Coordinator started processing query with trace_id: fe09638e-8afc-4d6a-8a9c-0e8f65153874
+[ 2025-07-23 12:53:39,744 ] 28 root - INFO - Starting document retrieval for query: Give me some interview questions related to LLM
+[ 2025-07-23 12:53:39,745 ] 52 root - INFO - Searching for: Give me some interview questions related to LLM
+[ 2025-07-23 12:53:39,785 ] 57 root - INFO - Found results from sources: {'LLM Interview Questions.pdf'}
+[ 2025-07-23 12:53:39,786 ] 52 root - INFO - Retrieved 7 chunks from sources: ['LLM Interview Questions.pdf']
+[ 2025-07-23 12:53:42,236 ] 1025 httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-07-23 12:54:02,216 ] 36 root - INFO - Coordinator started processing query with trace_id: 7c02bf79-3a6e-4286-9daf-94c9bb232777
+[ 2025-07-23 12:54:02,217 ] 28 root - INFO - Starting document retrieval for query: summarize the vedic report
+[ 2025-07-23 12:54:02,217 ] 52 root - INFO - Searching for: summarize the vedic report
+[ 2025-07-23 12:54:02,259 ] 57 root - INFO - Found results from sources: {'VedicReport6-25-20259-49-16AM.pdf'}
+[ 2025-07-23 12:54:02,260 ] 52 root - INFO - Retrieved 7 chunks from sources: ['VedicReport6-25-20259-49-16AM.pdf']
+[ 2025-07-23 12:54:05,435 ] 1025 httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-07-23 12:54:59,333 ] 36 root - INFO - Coordinator started processing query with trace_id: a218bb2b-adfc-464d-b34a-18f1857b0501
+[ 2025-07-23 12:54:59,334 ] 28 root - INFO - Starting document retrieval for query: What are all the project done by Amrutiya jinil patel
+[ 2025-07-23 12:54:59,334 ] 52 root - INFO - Searching for: What are all the project done by Amrutiya jinil patel
+[ 2025-07-23 12:54:59,376 ] 57 root - INFO - Found results from sources: {'VedicReport6-25-20259-49-16AM.pdf', 'Jinil_Patel_Resume.pdf'}
+[ 2025-07-23 12:54:59,377 ] 52 root - INFO - Retrieved 7 chunks from sources: ['VedicReport6-25-20259-49-16AM.pdf', 'Jinil_Patel_Resume.pdf']
+[ 2025-07-23 12:55:02,574 ] 1025 httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-07-23 12:55:13,818 ] 72 root - INFO - Cleared 151 documents from collection

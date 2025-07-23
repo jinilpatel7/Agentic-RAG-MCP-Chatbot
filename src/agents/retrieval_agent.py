@@ -5,6 +5,7 @@ from src.exception import CustomException
 from src.logger import logging
 from src.vector_store.chroma_db import ChromaDBHandler
 from src.mcp.mcp_like_msg import MCPMessage
+from langchain_core.documents import Document
 
 
 class RetrievalAgent:
@@ -19,43 +20,36 @@ class RetrievalAgent:
             raise CustomException(e, sys)
 
     def retrieve_context(self, query: str, documents: list, trace_id: str) -> dict:
-        """Retrieve relevant context for the query"""
+        """
+        Retrieve the most relevant document chunks for the query.
+        This new logic prioritizes relevance above all.
+        """
         try:
             logging.info(f"Starting document retrieval for query: {query}")
             
-            # Search with more results to ensure diversity
-            docs = self.vector_db.similarity_search(query, k=10)
+            # --- IMPROVEMENT: Retrieve the top K most relevant docs directly ---
+            # We fetch more (e.g., 7) to give the LLM a richer context.
+            # The similarity search is already sorted by relevance.
+            top_docs: List[Document] = self.vector_db.similarity_search(query, k=7)
             
-            # Group by source and select top chunks from each source
-            chunks_by_source = {}
-            for doc in docs:
-                source = doc.metadata.get("source", "Unknown")
-                if source not in chunks_by_source:
-                    chunks_by_source[source] = []
-                chunks_by_source[source].append(doc.page_content)
+            if not top_docs:
+                logging.warning("No relevant documents found for the query.")
+                return {
+                    "sender": "RetrievalAgent",
+                    "receiver": "LLMResponseAgent",
+                    "type": "RETRIEVAL_RESULT",
+                    "trace_id": trace_id,
+                    "payload": {
+                        "top_docs": [],
+                        "sources": []
+                    }
+                }
+
+            # Extract the page content (the text chunks) and a unique list of sources
+            top_chunks = [doc.page_content for doc in top_docs]
+            sources_used = list(set(doc.metadata.get("source", "Unknown") for doc in top_docs))
             
-            # Get top chunks ensuring diversity across sources
-            top_chunks = []
-            sources_used = []
-            
-            # First, get at least one chunk from each source
-            for source, chunks in chunks_by_source.items():
-                if chunks:
-                    top_chunks.append(chunks[0])
-                    sources_used.append(source)
-            
-            # Then fill remaining slots with best chunks
-            remaining_slots = 5 - len(top_chunks)
-            if remaining_slots > 0:
-                for doc in docs[:remaining_slots]:
-                    if doc.page_content not in top_chunks:
-                        top_chunks.append(doc.page_content)
-                        sources_used.append(doc.metadata.get("source", "Unknown"))
-            
-            # Limit to 5 chunks
-            top_chunks = top_chunks[:5]
-            
-            logging.info(f"Retrieved {len(top_chunks)} chunks from sources: {set(sources_used)}")
+            logging.info(f"Retrieved {len(top_docs)} chunks from sources: {sources_used}")
 
             return {
                 "sender": "RetrievalAgent",
@@ -63,25 +57,34 @@ class RetrievalAgent:
                 "type": "RETRIEVAL_RESULT",
                 "trace_id": trace_id,
                 "payload": {
-                    "top_chunks": top_chunks,
-                    "query": query,
-                    "sources": list(set(sources_used))
+                    # We now pass the full Document objects to preserve metadata
+                    "top_docs": top_docs,
+                    "sources": sources_used
                 }
             }
         except Exception as e:
             raise CustomException(e, sys)
 
     def retrieve(self, query: str) -> MCPMessage:
-        """Alternative method for backward compatibility"""
+        """Alternative method for backward compatibility if needed."""
         try:
             trace_id = str(uuid.uuid4())
             result = self.retrieve_context(query, [], trace_id)
+            
+            # Note: This method might need adjustment if downstream code relies on its specific payload.
+            # For our current flow, retrieve_context is used directly.
+            payload = {
+                "top_chunks": [doc.page_content for doc in result["payload"]["top_docs"]],
+                "query": query,
+                "sources": result["payload"]["sources"]
+            }
+            
             return MCPMessage(
                 sender=result["sender"],
                 receiver=result["receiver"],
                 msg_type=result["type"],
-                trace_id=result["trace_id"],
-                payload=result["payload"]
+                trace_id=trace_id,
+                payload=payload
             )
         except Exception as e:
             raise CustomException(e, sys)

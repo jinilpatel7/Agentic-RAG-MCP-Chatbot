@@ -1,0 +1,46 @@
+[ 2025-07-23 12:29:15,781 ] 11 root - INFO - Loading HuggingFace embedding model: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 12:29:40,011 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-23 12:29:40,012 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 12:29:52,341 ] 17 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-23 12:29:52,411 ] 22 chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[ 2025-07-23 12:29:53,007 ] 28 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-23 12:29:53,010 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-23 12:29:53,010 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 12:30:00,365 ] 17 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-23 12:30:00,487 ] 28 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-23 12:30:00,488 ] 17 root - INFO - RetrievalAgent initialized successfully
+[ 2025-07-23 12:30:03,905 ] 34 root - INFO - LLMResponseAgent initialized with model: mistralai/mistral-7b-instruct:free
+[ 2025-07-23 12:30:03,906 ] 31 root - INFO - CoordinatorAgent initialized successfully
+[ 2025-07-23 12:30:44,786 ] 14 root - INFO - Initializing IngestionAgent...
+[ 2025-07-23 12:30:44,787 ] 21 root - INFO - Initializing TextExtractor with supported file types...
+[ 2025-07-23 12:30:44,787 ] 21 root - INFO - Starting ingestion for 2 file(s).
+[ 2025-07-23 12:30:44,787 ] 24 root - INFO - Processing file: ./data\Final_leads_comb.csv
+[ 2025-07-23 12:30:44,903 ] 28 root - INFO - Successfully extracted text from: ./data\Final_leads_comb.csv
+[ 2025-07-23 12:30:44,903 ] 24 root - INFO - Processing file: ./data\Jinil_Patel_Resume.pdf
+[ 2025-07-23 12:30:45,897 ] 28 root - INFO - Successfully extracted text from: ./data\Jinil_Patel_Resume.pdf
+[ 2025-07-23 12:30:45,898 ] 34 root - INFO - Completed ingestion of all files.
+[ 2025-07-23 12:30:45,899 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-23 12:30:45,960 ] 36 root - INFO - Text split into 1113 chunks.
+[ 2025-07-23 12:30:45,961 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-23 12:30:45,962 ] 36 root - INFO - Text split into 9 chunks.
+[ 2025-07-23 12:30:45,965 ] 41 root - INFO - Adding 1122 document chunks to Chroma...
+[ 2025-07-23 12:32:10,529 ] 43 root - INFO - Documents added to Chroma DB successfully.
+[ 2025-07-23 12:32:52,605 ] 38 root - INFO - Coordinator started processing query with trace_id: d2c6fed1-55c7-4f05-b069-7856a7f62531
+[ 2025-07-23 12:32:52,605 ] 24 root - INFO - Starting document retrieval for query: How many same firstName are there
+[ 2025-07-23 12:32:52,606 ] 52 root - INFO - Searching for: How many same firstName are there
+[ 2025-07-23 12:32:52,782 ] 57 root - INFO - Found results from sources: {'Final_leads_comb.csv'}
+[ 2025-07-23 12:32:52,783 ] 58 root - INFO - Retrieved 4 chunks from sources: {'Final_leads_comb.csv'}
+[ 2025-07-23 12:32:57,953 ] 1025 httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-07-23 12:34:23,596 ] 38 root - INFO - Coordinator started processing query with trace_id: 80a3ebf2-0dea-40de-b8fc-09a7d3a5137a
+[ 2025-07-23 12:34:23,597 ] 24 root - INFO - Starting document retrieval for query: what are all the columns in the csv file
+[ 2025-07-23 12:34:23,597 ] 52 root - INFO - Searching for: what are all the columns in the csv file
+[ 2025-07-23 12:34:23,638 ] 57 root - INFO - Found results from sources: {'Final_leads_comb.csv'}
+[ 2025-07-23 12:34:23,639 ] 58 root - INFO - Retrieved 4 chunks from sources: {'Final_leads_comb.csv'}
+[ 2025-07-23 12:34:27,400 ] 1025 httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-07-23 12:35:02,299 ] 38 root - INFO - Coordinator started processing query with trace_id: c9d47b94-1a08-432c-b9d8-458c7f71c788
+[ 2025-07-23 12:35:02,300 ] 24 root - INFO - Starting document retrieval for query: how many total number of rows are there in the csv file
+[ 2025-07-23 12:35:02,300 ] 52 root - INFO - Searching for: how many total number of rows are there in the csv file
+[ 2025-07-23 12:35:02,343 ] 57 root - INFO - Found results from sources: {'Final_leads_comb.csv'}
+[ 2025-07-23 12:35:02,344 ] 58 root - INFO - Retrieved 4 chunks from sources: {'Final_leads_comb.csv'}
+[ 2025-07-23 12:35:05,140 ] 1025 httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-07-23 12:35:21,497 ] 72 root - INFO - Cleared 1122 documents from collection

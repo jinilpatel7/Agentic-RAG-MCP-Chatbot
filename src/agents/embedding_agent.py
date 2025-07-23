@@ -11,7 +11,7 @@ class EmbeddingAgent:
             logging.info(f"Loading HuggingFace embedding model: {model_name}")
             self.embedding_model = HuggingFaceEmbeddings(model_name=model_name)
         except Exception as e:
-            raise CustomException("embedding_agent.py", 13, str(e))
+            raise CustomException(e, sys)
 
     def embed_and_store(self, documents, persist_directory: str):
         try:
@@ -20,4 +20,4 @@ class EmbeddingAgent:
             vector_store.create_or_load(self.embedding_model)
             vector_store.add_documents(documents)
         except Exception as e:
-            raise CustomException("embedding_agent.py", 25, str(e))
+            raise CustomException(e, sys)
