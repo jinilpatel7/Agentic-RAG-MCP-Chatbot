@@ -1,0 +1,40 @@
+[ 2025-07-23 19:14:28,681 ] 11 root - INFO - Loading HuggingFace embedding model: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 19:15:03,249 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-23 19:15:03,250 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 19:15:17,446 ] 17 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-23 19:15:17,552 ] 22 chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[ 2025-07-23 19:15:18,101 ] 28 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-23 19:15:18,101 ] 11 root - INFO - Loading HuggingFace embedding model: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 19:15:18,103 ] 219 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-07-23 19:15:18,104 ] 227 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+[ 2025-07-23 19:15:23,114 ] 17 root - INFO - Initializing Chroma vectorstore at: ./vectorstore/chroma_db
+[ 2025-07-23 19:15:23,230 ] 28 root - INFO - Chroma vectorstore initialized successfully.
+[ 2025-07-23 19:15:23,231 ] 18 root - INFO - RetrievalAgent initialized successfully
+[ 2025-07-23 19:15:26,849 ] 34 root - INFO - LLMResponseAgent initialized with model: mistralai/mistral-7b-instruct:free
+[ 2025-07-23 19:15:26,849 ] 31 root - INFO - CoordinatorAgent initialized successfully
+[ 2025-07-23 19:16:39,130 ] 14 root - INFO - Initializing IngestionAgent...
+[ 2025-07-23 19:16:39,131 ] 21 root - INFO - Initializing TextExtractor with supported file types...
+[ 2025-07-23 19:16:39,132 ] 21 root - INFO - Starting ingestion for 2 file(s).
+[ 2025-07-23 19:16:39,132 ] 24 root - INFO - Processing file: ./data\Coding Round Task.pdf
+[ 2025-07-23 19:16:40,110 ] 28 root - INFO - Successfully extracted text from: ./data\Coding Round Task.pdf
+[ 2025-07-23 19:16:40,111 ] 24 root - INFO - Processing file: ./data\Jinil_Patel_Resume.pdf
+[ 2025-07-23 19:16:40,587 ] 28 root - INFO - Successfully extracted text from: ./data\Jinil_Patel_Resume.pdf
+[ 2025-07-23 19:16:40,587 ] 34 root - INFO - Completed ingestion of all files.
+[ 2025-07-23 19:16:40,588 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-23 19:16:40,592 ] 36 root - INFO - Text split into 10 chunks.
+[ 2025-07-23 19:16:40,594 ] 24 root - INFO - Splitting extracted text into chunks...
+[ 2025-07-23 19:16:40,595 ] 36 root - INFO - Text split into 9 chunks.
+[ 2025-07-23 19:16:40,596 ] 41 root - INFO - Adding 19 document chunks to Chroma...
+[ 2025-07-23 19:16:42,500 ] 43 root - INFO - Documents added to Chroma DB successfully.
+[ 2025-07-23 19:17:13,118 ] 39 root - INFO - Coordinator started processing query with trace_id: ec3ff9ff-b90b-44a0-9fc4-a7187ae0b3b6
+[ 2025-07-23 19:17:13,118 ] 28 root - INFO - Starting document retrieval for query: Whose resume is uploaded and what are the project done by that person
+[ 2025-07-23 19:17:13,119 ] 52 root - INFO - Searching for: Whose resume is uploaded and what are the project done by that person
+[ 2025-07-23 19:17:13,291 ] 57 root - INFO - Found results from sources: {'Coding Round Task.pdf', 'Jinil_Patel_Resume.pdf'}
+[ 2025-07-23 19:17:13,291 ] 52 root - INFO - Retrieved 7 chunks from sources: ['Coding Round Task.pdf', 'Jinil_Patel_Resume.pdf']
+[ 2025-07-23 19:17:16,631 ] 1025 httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-07-23 19:17:51,064 ] 39 root - INFO - Coordinator started processing query with trace_id: f185e553-b491-450e-9982-5a9b028d366d
+[ 2025-07-23 19:17:51,065 ] 28 root - INFO - Starting document retrieval for query: Is he fit for the job role of AI Engineer ?
+[ 2025-07-23 19:17:51,065 ] 52 root - INFO - Searching for: Is he fit for the job role of AI Engineer ?
+[ 2025-07-23 19:17:51,101 ] 57 root - INFO - Found results from sources: {'Jinil_Patel_Resume.pdf'}
+[ 2025-07-23 19:17:51,103 ] 52 root - INFO - Retrieved 7 chunks from sources: ['Jinil_Patel_Resume.pdf']
+[ 2025-07-23 19:17:54,050 ] 1025 httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
