@@ -1,3 +1,5 @@
+# This file defines a handler for interacting with the Chroma vector database.
+
 import sys
 import os
 from typing import List
@@ -8,33 +10,55 @@ from src.logger import logging
 
 
 class ChromaDBHandler:
+    """
+    Handler class to manage interaction with the Chroma vector database.
+    This includes creating/loading the DB, adding documents, performing similarity searches, and clearing the DB.
+    """
+
     def __init__(self, persist_directory: str):
+        """
+        Initializes the handler and sets up the directory to persist the Chroma DB.
+
+        Args:
+            persist_directory (str): Path to save and reload vectorstore data.
+        """
         try:
             self.persist_directory = persist_directory
             self.db = None
-            # Create directory if it doesn't exist
-            os.makedirs(persist_directory, exist_ok=True)
+            os.makedirs(persist_directory, exist_ok=True)  # Ensure directory exists
             logging.info(f"Initializing Chroma vectorstore at: {persist_directory}")
         except Exception as e:
             raise CustomException(e, sys)
 
     def create_or_load(self, embeddings):
+        """
+        Creates a new or loads an existing Chroma vectorstore using the given embedding model.
+
+        Args:
+            embeddings: The embedding function/model used for storing and retrieving vectors.
+        """
         try:
             self.db = Chroma(
                 persist_directory=self.persist_directory,
                 embedding_function=embeddings,
-                collection_name="rag_collection"
+                collection_name="rag_collection"  # Use a consistent collection name
             )
             logging.info("Chroma vectorstore initialized successfully.")
         except Exception as e:
             raise CustomException(e, sys)
 
     def add_documents(self, documents: List[Document]):
+        """
+        Adds a list of LangChain Document chunks to the Chroma DB.
+
+        Args:
+            documents (List[Document]): The documents (with metadata) to be stored.
+        """
         try:
             if not self.db:
                 raise Exception("Chroma DB not initialized. Call create_or_load first.")
             
-            # Add unique IDs to prevent duplicates
+            # Assign unique doc_id using source and index to help prevent duplicates
             for i, doc in enumerate(documents):
                 doc.metadata["doc_id"] = f"{doc.metadata.get('source', 'unknown')}_{i}"
             
@@ -45,14 +69,24 @@ class ChromaDBHandler:
             raise CustomException(e, sys)
 
     def similarity_search(self, query: str, k: int = 5):
+        """
+        Performs a vector-based similarity search in the Chroma DB.
+
+        Args:
+            query (str): The user query to search for relevant documents.
+            k (int): Number of top results to return.
+
+        Output:
+            List[Document]: List of top-k documents relevant to the query.
+        """
         try:
             if not self.db:
                 raise Exception("Chroma DB not initialized. Call create_or_load first.")
             
             logging.info(f"Searching for: {query}")
             results = self.db.similarity_search(query, k=k)
-            
-            # Log sources found
+
+            # Log where results came from
             sources = set([doc.metadata.get("source", "unknown") for doc in results])
             logging.info(f"Found results from sources: {sources}")
             
@@ -61,10 +95,13 @@ class ChromaDBHandler:
             raise CustomException(e, sys)
 
     def clear_collection(self):
-        """Clear all documents from the collection"""
+        """
+        Clears all documents from the Chroma collection.
+        Useful for testing or re-ingesting new data.
+        """
         try:
             if self.db:
-                # Get all document IDs and delete them
+                # Access the low-level collection object
                 collection = self.db._collection
                 all_ids = collection.get()["ids"]
                 if all_ids:
